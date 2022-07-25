@@ -1,7 +1,8 @@
 # Define custom function directory
 ARG FUNCTION_DIR="/function"
 
-FROM mcr.microsoft.com/playwright:v1.22.0-focal as build-image
+# https://repost.aws/questions/QUtlb2BYIEQjyirCUWspC-CQ/exit-254-lambda-error-with-no-extra-explanations
+FROM mcr.microsoft.com/playwright:v1.22.2 as build-image
 
 # Include global arg in this stage of the build
 ARG FUNCTION_DIR
@@ -33,7 +34,7 @@ RUN npm install aws-lambda-ric
 COPY function/ ${FUNCTION_DIR}
 
 # Multi-stage build: Get a fresh slim copy of base image to reduce final size
-FROM mcr.microsoft.com/playwright:focal
+FROM mcr.microsoft.com/playwright:v1.22.2
 
 # Include global arg in this stage of the build
 ARG FUNCTION_DIR
