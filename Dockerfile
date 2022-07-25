@@ -1,7 +1,7 @@
 # Define custom function directory
 ARG FUNCTION_DIR="/function"
 
-FROM mcr.microsoft.com/playwright:focal as build-image
+FROM mcr.microsoft.com/playwright:v1.22.0-focal as build-image
 
 # Include global arg in this stage of the build
 ARG FUNCTION_DIR
