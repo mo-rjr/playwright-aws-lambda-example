@@ -28,7 +28,7 @@ COPY function/package.json ${FUNCTION_DIR}
 RUN npm install
 
 # Install AWS Lambda Node.js Runtime Interface Client API
-RUN npm install aws-lambda-ric
+RUN npm install aws-lambda-ric --save
 
 # Copy the rest of the function directory
 COPY function/ ${FUNCTION_DIR}
