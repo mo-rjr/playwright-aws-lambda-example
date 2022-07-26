@@ -11,8 +11,13 @@ const { webkit, chromium } = require('playwright');
 //     return `/ms-playwright/${suffix}`;
 // }
 
+// getCustomExecutablePath = (expectedPath) => {
+//     return expectedPath;
+// }
+
 getCustomExecutablePath = (expectedPath) => {
-    return expectedPath;
+    const suffix = expectedPath.split('/ms-playwright/')[1];
+    return  `/home/pwuser/ms-playwright/${suffix}`;
 }
 
 exports.handler = async (event, context) => {
