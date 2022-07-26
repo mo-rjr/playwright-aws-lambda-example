@@ -1,18 +1,24 @@
 const { webkit, chromium } = require('playwright');
 
 
+// getCustomExecutablePath = (expectedPath) => {
+//     const suffix = expectedPath.split('/.cache/ms-playwright/')[1];
+//     return  `/home/pwuser/.cache/ms-playwright/${suffix}`;
+// }
+
 getCustomExecutablePath = (expectedPath) => {
     const suffix = expectedPath.split('/.cache/ms-playwright/')[1];
-    return  `/home/pwuser/.cache/ms-playwright/${suffix}`;
+    return `/ms-playwright/${suffix}`;
 }
 
 exports.handler = async (event, context) => {
-    let browserName = event.browser || 'chromium';
+    // let browserName = event.browser || 'chromium';
+    let browserName = 'chromium';
+    console.log("Using chromium");
     const extraLaunchArgs = event.browserArgs || [];
     const browserTypes = {
         'webkit': webkit,
         'chromium': chromium,
-        //'firefox': firefox,
     };
     const browserLaunchArgs = {
         'webkit': [],
